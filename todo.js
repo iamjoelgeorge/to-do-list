@@ -32,18 +32,34 @@ saveButton.addEventListener("click", function(e) {
   let taskName = document.querySelector(".task-name");
   let taskLetter = document.querySelector(".circle");
   let firstCharacter = addTaskInput.value.charAt(0);
+  let tasksParent = document.getElementById("tasks");
 
   // console.log(firstCharacter);
+
+  let newTask = document.createElement("div");
+  let circleDiv = document.createElement("div");
+  let contentDiv = document.createElement("div");
+  let expiryDiv = document.createElement("div");
+
+  tasksParent.appendChild(newTask);
+  newTask.appendChild(circleDiv);
+  newTask.appendChild(contentDiv);
+  newTask.appendChild(expiryDiv);
+  contentDiv.appendChild(taskDesc);
+  contentDiv.appendChild(taskName);
+
+  newTask.className = "the-task flex-row";
+  circleDiv.className = "circle flex-row-center";
+  contentDiv.className = "tasks--content flex-col";
+  expiryDiv.className = "tasks--expiry";
+
+  console.log(newTask);
 
   taskLetter.innerText = firstCharacter;
 
   taskDesc.innerText = addTaskInput.value;
   taskName.innerText = descriptionInput.value;
 
-  console.log(addTaskInput.value);
-  console.log(descriptionInput.value);
-  console.log(date.value);
-  console.log(time.value);
   val = allTasksContainer;
   addTaskModal(val);
 });
