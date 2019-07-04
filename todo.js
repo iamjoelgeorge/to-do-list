@@ -74,6 +74,8 @@ saveButton.addEventListener("click", function(e) {
       let mins = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
       let secs = Math.floor((t % (1000 * 60)) / 1000);
       expiryDiv.innerText = `${days} Day(s) ${hours} Hour(s) ${mins} Min(s) ${secs} Sec(s)`;
+    } else {
+      expiryDiv.innerText = "GET GOING! NOW!";
     }
   }, 1000);
 
