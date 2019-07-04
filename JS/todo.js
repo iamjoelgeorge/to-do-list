@@ -28,6 +28,18 @@ mainButton.addEventListener("click", function() {
 });
 
 saveButton.addEventListener("click", function(e) {
+  let taskDesc = document.querySelector(".task-desc");
+  let taskName = document.querySelector(".task-name");
+  let taskLetter = document.querySelector(".circle");
+  let firstCharacter = addTaskInput.value.charAt(0);
+
+  // console.log(firstCharacter);
+
+  taskLetter.innerText = firstCharacter;
+
+  taskDesc.innerText = addTaskInput.value;
+  taskName.innerText = descriptionInput.value;
+
   console.log(addTaskInput.value);
   console.log(descriptionInput.value);
   console.log(date.value);
