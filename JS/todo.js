@@ -28,7 +28,10 @@ mainButton.addEventListener("click", function() {
 });
 
 saveButton.addEventListener("click", function(e) {
-  console.log("Hi");
+  console.log(addTaskInput.value);
+  console.log(descriptionInput.value);
+  console.log(date.value);
+  console.log(time.value);
   val = allTasksContainer;
   addTaskModal(val);
 });
@@ -37,3 +40,4 @@ function addTaskModal(val) {
   newTaskContainer.classList.add("hidden");
   val.classList.remove("hidden");
 }
+//------------------------------------//
