@@ -27,6 +27,7 @@ mainButton.addEventListener("click", function() {
   addTaskModal(val);
 });
 
+// SAVE BUTTON
 saveButton.addEventListener("click", function(e) {
   let firstCharacter = addTaskInput.value.charAt(0);
   let tasksParent = document.getElementById("tasks");
@@ -40,6 +41,7 @@ saveButton.addEventListener("click", function(e) {
   let taskName = document.createElement("div");
   let expiryDiv = document.createElement("div");
 
+  //----------------------------------------//
   newTask.className = "the-task flex-row";
   circleDiv.className = "circle flex-row-center";
   contentDiv.className = "tasks--content flex-col";
@@ -53,13 +55,30 @@ saveButton.addEventListener("click", function(e) {
   newTask.appendChild(expiryDiv);
   contentDiv.appendChild(taskDesc);
   contentDiv.appendChild(taskName);
+  // expiryDiv.innerText = "--/--/----";
 
   // console.log(newTask);
 
   circleDiv.innerText = firstCharacter;
-
   taskDesc.innerText = addTaskInput.value;
   taskName.innerText = descriptionInput.value;
+
+  //COUNTDOWN TIMER
+  let endDate = new Date(`${date.value} ${time.value}`).getTime();
+  let timer = setInterval(function() {
+    let now = new Date().getTime();
+    let t = endDate - now;
+    if (t >= 0) {
+      let days = Math.floor(t / (1000 * 60 * 60 * 24));
+      let hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      let mins = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+      let secs = Math.floor((t % (1000 * 60)) / 1000);
+      expiryDiv.innerText = `${days} Day(s) ${hours} Hour(s) ${mins} Min(s) ${secs} Sec(s)`;
+    }
+  }, 1000);
+
+  // console.log(endDate);
+  // console.log(timer);
 
   val = allTasksContainer;
   addTaskModal(val);
