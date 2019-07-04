@@ -28,9 +28,9 @@ mainButton.addEventListener("click", function() {
 });
 
 saveButton.addEventListener("click", function(e) {
-  let taskDesc = document.querySelector(".task-desc");
-  let taskName = document.querySelector(".task-name");
-  let taskLetter = document.querySelector(".circle");
+  // let taskDesc = document.querySelector(".task-desc");
+  // let taskName = document.querySelector(".task-name");
+  // let taskLetter = document.querySelector(".circle");
   let firstCharacter = addTaskInput.value.charAt(0);
   let tasksParent = document.getElementById("tasks");
 
@@ -39,7 +39,16 @@ saveButton.addEventListener("click", function(e) {
   let newTask = document.createElement("div");
   let circleDiv = document.createElement("div");
   let contentDiv = document.createElement("div");
+  let taskDesc = document.createElement("div");
+  let taskName = document.createElement("div");
   let expiryDiv = document.createElement("div");
+
+  newTask.className = "the-task flex-row";
+  circleDiv.className = "circle flex-row-center";
+  contentDiv.className = "tasks--content flex-col";
+  expiryDiv.className = "tasks--expiry";
+  taskDesc.className = "task-desc";
+  taskName.className = "task-name";
 
   tasksParent.appendChild(newTask);
   newTask.appendChild(circleDiv);
@@ -48,14 +57,9 @@ saveButton.addEventListener("click", function(e) {
   contentDiv.appendChild(taskDesc);
   contentDiv.appendChild(taskName);
 
-  newTask.className = "the-task flex-row";
-  circleDiv.className = "circle flex-row-center";
-  contentDiv.className = "tasks--content flex-col";
-  expiryDiv.className = "tasks--expiry";
-
   console.log(newTask);
 
-  taskLetter.innerText = firstCharacter;
+  circleDiv.innerText = firstCharacter;
 
   taskDesc.innerText = addTaskInput.value;
   taskName.innerText = descriptionInput.value;
