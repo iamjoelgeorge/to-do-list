@@ -28,9 +28,6 @@ mainButton.addEventListener("click", function() {
 });
 
 saveButton.addEventListener("click", function(e) {
-  // let taskDesc = document.querySelector(".task-desc");
-  // let taskName = document.querySelector(".task-name");
-  // let taskLetter = document.querySelector(".circle");
   let firstCharacter = addTaskInput.value.charAt(0);
   let tasksParent = document.getElementById("tasks");
 
@@ -57,7 +54,7 @@ saveButton.addEventListener("click", function(e) {
   contentDiv.appendChild(taskDesc);
   contentDiv.appendChild(taskName);
 
-  console.log(newTask);
+  // console.log(newTask);
 
   circleDiv.innerText = firstCharacter;
 
