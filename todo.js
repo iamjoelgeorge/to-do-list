@@ -15,7 +15,7 @@ let radioPersonal = document.querySelector("#personal");
 let radioBusiness = document.querySelector("#business");
 let radioOther = document.querySelector("#other");
 
-let tasksParent = document.getElementById("tasks");
+let tasksParent = document.querySelector("#tasks");
 
 //CLOSE NEW TASK CONTAINER WITH ESC BUTTON (Modal)
 document.onkeydown = function(evt) {
