@@ -287,15 +287,9 @@ main {
 #all {
   margin-left: auto;
 }
-.test {
-  position: fixed;
-  bottom: 100px;
-  right: 100px;
-  padding: 10px 45px;
-  z-index: 999;
-  background: skyblue;
-  border: none;
-  border-radius: 20px;
+.close {
   cursor: pointer;
-  outline: none;
+  text-decoration: none;
+  color: var(--form-label-color);
+  font-size: 1.2em;
 }

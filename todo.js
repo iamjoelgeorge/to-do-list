@@ -47,6 +47,11 @@ function saveButtonFunc() {
   let taskDesc = document.createElement("div");
   let taskName = document.createElement("div");
   let expiryDiv = document.createElement("div");
+  let closeButton = document.createElement("a");
+
+  closeButton.innerText = "x";
+
+  console.log(newTask);
 
   newTask.className = "the-task flex-row";
   circleDiv.className = "circle flex-row-center";
@@ -54,12 +59,15 @@ function saveButtonFunc() {
   expiryDiv.className = "tasks--expiry";
   taskDesc.className = "task-desc";
   taskName.className = "task-name";
+  closeButton.className = "close";
+
+  closeButton.setAttribute("href", "#");
 
   tasksParent.appendChild(newTask);
-
   newTask.appendChild(circleDiv);
   newTask.appendChild(contentDiv);
   newTask.appendChild(expiryDiv);
+  newTask.appendChild(closeButton);
   contentDiv.appendChild(taskDesc);
   contentDiv.appendChild(taskName);
 
