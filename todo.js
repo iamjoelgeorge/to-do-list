@@ -1,6 +1,7 @@
 let dropdownList = document.querySelector("#dropdown-list");
 let newTaskContainer = document.querySelector("#new-task-container");
 let allTasksContainer = document.querySelector("#all-tasks-container");
+let itemsLeft = document.querySelector("#items-left");
 let val;
 
 let mainButton = document.querySelector("#btn--main");
@@ -13,6 +14,8 @@ let time = document.querySelector("#time");
 let radioPersonal = document.querySelector("#personal");
 let radioBusiness = document.querySelector("#business");
 let radioOther = document.querySelector("#other");
+
+let tasksParent = document.getElementById("tasks");
 
 //CLOSE NEW TASK CONTAINER WITH ESC BUTTON (Modal)
 document.onkeydown = function(evt) {
@@ -36,8 +39,6 @@ function mainButtonFunc() {
 // SAVE BUTTON WHEN CLICKED
 function saveButtonFunc() {
   let firstCharacter = addTaskInput.value.charAt(0);
-  let tasksParent = document.getElementById("tasks");
-  ////////////////////////////////////////////
 
   //CREATING ELEMENTS FOR THE NEW TASK
   let newTask = document.createElement("div");
@@ -55,6 +56,7 @@ function saveButtonFunc() {
   taskName.className = "task-name";
 
   tasksParent.appendChild(newTask);
+
   newTask.appendChild(circleDiv);
   newTask.appendChild(contentDiv);
   newTask.appendChild(expiryDiv);
@@ -82,6 +84,18 @@ function saveButtonFunc() {
     }
   }, 1000);
 
+  //DYNAMIC UPDATION OF THE NUMBER OF TASKS REMAINING
+  let noOfTasks = tasksParent.childNodes.length;
+  if (noOfTasks > 0) {
+    if (noOfTasks == 1) {
+      itemsLeft.innerText = "1 Task Remaining";
+    } else {
+      itemsLeft.innerText = `${noOfTasks} Tasks Remaining`;
+    }
+  } else {
+    itemsLeft.innerText = "No items left";
+  }
+
   val = allTasksContainer;
   addTaskModal(val);
 }
@@ -93,3 +107,5 @@ function addTaskModal(val) {
   val.classList.remove("hidden");
 }
 //------------------------------------//
+
+console.log(itemsLeft.innerText);
