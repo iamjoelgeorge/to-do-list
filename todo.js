@@ -21,20 +21,23 @@ document.onkeydown = function(evt) {
     evt.preventDefault();
   }
 };
-//------------------------------------//
+//----------------------------------------------//
+mainButton.addEventListener("click", mainButtonFunc);
+saveButton.addEventListener("click", saveButtonFunc);
+//----------------------------------------------//
 
 //HOME PAGE BUTTON WHEN CLICKED
-mainButton.addEventListener("click", function() {
+function mainButtonFunc() {
   val = newTaskContainer;
   addTaskModal(val);
-});
-//------------------------------------//
+}
+//----------------------------//
 
 // SAVE BUTTON WHEN CLICKED
-saveButton.addEventListener("click", function(e) {
+function saveButtonFunc() {
   let firstCharacter = addTaskInput.value.charAt(0);
   let tasksParent = document.getElementById("tasks");
-  //------------------------------------//
+  ////////////////////////////////////////////
 
   //CREATING ELEMENTS FOR THE NEW TASK
   let newTask = document.createElement("div");
@@ -61,13 +64,13 @@ saveButton.addEventListener("click", function(e) {
   circleDiv.innerText = firstCharacter;
   taskDesc.innerText = addTaskInput.value;
   taskName.innerText = descriptionInput.value;
-  //----------------------------------------//
 
   //COUNTDOWN TIMER
   let endDate = new Date(`${date.value} ${time.value}`).getTime();
   let timer = setInterval(function() {
     let now = new Date().getTime();
     let t = endDate - now;
+
     if (t >= 0) {
       let days = Math.floor(t / (1000 * 60 * 60 * 24));
       let hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -78,14 +81,13 @@ saveButton.addEventListener("click", function(e) {
       expiryDiv.innerText = "GET GOING! NOW!";
     }
   }, 1000);
-  //----------------------------------------//
 
   val = allTasksContainer;
   addTaskModal(val);
-});
+}
 //----------------------------------------//
 
-//HIDE AND SHOW ELEMENTS
+//FUNCTION TO HIDE AND SHOW ELEMENTS
 function addTaskModal(val) {
   newTaskContainer.classList.add("hidden");
   val.classList.remove("hidden");
