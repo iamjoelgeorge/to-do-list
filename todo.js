@@ -14,7 +14,7 @@ let radioPersonal = document.querySelector("#personal");
 let radioBusiness = document.querySelector("#business");
 let radioOther = document.querySelector("#other");
 
-//Close New Task Container (Modal)
+//CLOSE NEW TASK CONTAINER WITH ESC BUTTON (Modal)
 document.onkeydown = function(evt) {
   if (evt.keyCode === 27) {
     document.querySelector("#new-task-container").classList.add("hidden");
@@ -22,17 +22,19 @@ document.onkeydown = function(evt) {
   }
 };
 //------------------------------------//
+
+//HOME PAGE BUTTON WHEN CLICKED
 mainButton.addEventListener("click", function() {
   val = newTaskContainer;
   addTaskModal(val);
 });
+//------------------------------------//
 
-// SAVE BUTTON
+// SAVE BUTTON WHEN CLICKED
 saveButton.addEventListener("click", function(e) {
   let firstCharacter = addTaskInput.value.charAt(0);
   let tasksParent = document.getElementById("tasks");
-
-  // console.log(firstCharacter);
+  //------------------------------------//
 
   //CREATING ELEMENTS FOR THE NEW TASK
   let newTask = document.createElement("div");
@@ -76,14 +78,14 @@ saveButton.addEventListener("click", function(e) {
       expiryDiv.innerText = "GET GOING! NOW!";
     }
   }, 1000);
-
-  // console.log(endDate);
-  // console.log(timer);
+  //----------------------------------------//
 
   val = allTasksContainer;
   addTaskModal(val);
 });
+//----------------------------------------//
 
+//HIDE AND SHOW ELEMENTS
 function addTaskModal(val) {
   newTaskContainer.classList.add("hidden");
   val.classList.remove("hidden");
