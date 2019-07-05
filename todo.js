@@ -109,11 +109,9 @@ function saveButtonFunc() {
 }
 //----------------------------------------//
 
-//FUNCTION TO HIDE AND SHOW ELEMENTS
+//HIDE AND SHOW ELEMENTS
 function addTaskModal(val) {
   newTaskContainer.classList.add("hidden");
   val.classList.remove("hidden");
 }
 //------------------------------------//
-
-console.log(itemsLeft.innerText);
