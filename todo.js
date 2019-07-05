@@ -34,6 +34,7 @@ saveButton.addEventListener("click", function(e) {
 
   // console.log(firstCharacter);
 
+  //CREATING ELEMENTS FOR THE NEW TASK
   let newTask = document.createElement("div");
   let circleDiv = document.createElement("div");
   let contentDiv = document.createElement("div");
@@ -41,7 +42,6 @@ saveButton.addEventListener("click", function(e) {
   let taskName = document.createElement("div");
   let expiryDiv = document.createElement("div");
 
-  //----------------------------------------//
   newTask.className = "the-task flex-row";
   circleDiv.className = "circle flex-row-center";
   contentDiv.className = "tasks--content flex-col";
@@ -55,13 +55,11 @@ saveButton.addEventListener("click", function(e) {
   newTask.appendChild(expiryDiv);
   contentDiv.appendChild(taskDesc);
   contentDiv.appendChild(taskName);
-  // expiryDiv.innerText = "--/--/----";
-
-  // console.log(newTask);
 
   circleDiv.innerText = firstCharacter;
   taskDesc.innerText = addTaskInput.value;
   taskName.innerText = descriptionInput.value;
+  //----------------------------------------//
 
   //COUNTDOWN TIMER
   let endDate = new Date(`${date.value} ${time.value}`).getTime();
