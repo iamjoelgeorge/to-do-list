@@ -29,14 +29,14 @@ mainButton.addEventListener("click", mainButtonFunc);
 saveButton.addEventListener("click", saveButtonFunc);
 //----------------------------------------------//
 
-//HOME PAGE BUTTON WHEN CLICKED
+//HOME PAGE BUTTON WHEN CLICKED | SHOW ADD TASK FORM
 function mainButtonFunc() {
   val = newTaskContainer;
   addTaskModal(val);
 }
 //----------------------------//
 
-// SAVE BUTTON WHEN CLICKED
+// SAVE BUTTON WHEN CLICKED | CREATE NEW TASK
 function saveButtonFunc() {
   let firstCharacter = addTaskInput.value.charAt(0);
 
@@ -92,20 +92,25 @@ function saveButtonFunc() {
     }
   }, 1000);
 
-  //DYNAMIC UPDATION OF THE NUMBER OF TASKS REMAINING
   let noOfTasks = tasksParent.childNodes.length;
-  if (noOfTasks > 0) {
-    if (noOfTasks == 1) {
-      itemsLeft.innerText = "1 Task Remaining";
-    } else {
-      itemsLeft.innerText = `${noOfTasks} Tasks Remaining`;
-    }
-  } else {
-    itemsLeft.innerText = "No items left";
-  }
+  noOfTasksRemaining(noOfTasks);
+  // debugger;
+  let deleteItm = document.querySelector("#tasks");
+  deleteItm.addEventListener("click", deleteItem);
 
+  //HIDE NEW TASK CONTAINER
   val = allTasksContainer;
   addTaskModal(val);
+
+  //DELETE TASKS
+  function deleteItem(e) {
+    if (e.target.classList.contains("close")) {
+      e.target.parentElement.remove();
+      noOfTasks--;
+      noOfTasksRemaining(noOfTasks);
+      console.log(noOfTasks);
+    }
+  }
 }
 //----------------------------------------//
 
@@ -115,3 +120,17 @@ function addTaskModal(val) {
   val.classList.remove("hidden");
 }
 //------------------------------------//
+
+//DYNAMIC UPDATION OF THE NUMBER OF TASKS REMAINING
+function noOfTasksRemaining(noOfTasks) {
+  // var noOfTasks = tasksParent.childNodes.length - 1;
+  if (noOfTasks > 0) {
+    if (noOfTasks == 1) {
+      itemsLeft.innerText = "1 Task Remaining";
+    } else {
+      itemsLeft.innerText = `${noOfTasks} Tasks Remaining`;
+    }
+  } else {
+    itemsLeft.innerText = "No items left";
+  }
+}
