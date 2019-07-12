@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="todo.css" />
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/6.3.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/6.3.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/6.3.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/6.3.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/6.3.0/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+  </head>
+  <body>
+    <body>
+      <main id="main-body" class="flex-col-center">
+        <!-- Homepage Button -->
+        <div class="btn">
+          <button id="btn--main">
+            Your TO-DO List <span id="plus-sign">+</span>
+          </button>
+        </div>
+
+        <!-- Add a New Task Form -->
+        <section id="new-task-container" class="flex-col-center hidden">
+          <!-- <form name="newTaskForm" id="add-task--form" class="flex-col"> -->
+          <div id="add-task--form" class="flex-col">
+            <h2>Add a New Task</h2>
+            <div class="flex-col form-items">
+              <label for="add-task">Add Task</label>
+              <input
+                id="add-task"
+                type="text"
+                name="addTask"
+                placeholder="What needs to be done?"
+                required
+              />
+            </div>
+            <div class="flex-col form-items">
+              <label for="description">Description</label>
+              <input
+                id="description"
+                type="text"
+                name="description"
+                placeholder="Describe your task"
+                required
+              />
+            </div>
+            <div id="date-and-time-container" class="flex-row-center">
+              <div class="flex-col form-items" id="date-container">
+                <label for="date">Date</label>
+                <input id="date" type="date" name="date" value="" required />
+              </div>
+              <div class="flex-col form-items" id="time-container">
+                <label for="time">Time</label>
+                <input id="time" type="time" name="time" value="" required />
+              </div>
+            </div>
+            <!-- Radio Buttons -->
+            <div id="save" class="form-items">
+              <div id="options">
+                <input id="personal" type="radio" name="options" checked />
+                <label for="personal">Personal</label>
+
+                <input id="business" type="radio" name="options" />
+                <label for="business">Business</label>
+
+                <input id="other" type="radio" name="options" />
+                <label for="other">Other</label>
+              </div>
+              <!-- Save Button -->
+              <div id="save-btn-container" class="flex-row-center">
+                <button id="save-btn">Save</button>
+              </div>
+            </div>
+            <!-- </form> -->
+          </div>
+        </section>
+
+        <!-- ALL TASKS -->
+        <section id="all-tasks-container" class="hidden">
+          <div class="menu-and-search flex-row-end">
+            <div id="dropdown" class="cyan-color">
+              <p onclick="dropdown()" class="pointer">All</p>
+              <ul id="dropdown-list" class="hidden">
+                <li>Personal</li>
+                <li>Business</li>
+                <li>Other</li>
+                <li>All</li>
+              </ul>
+            </div>
+            <!-- SEARCH BOX -->
+            <div class="flex-row-center" id="searchbar">
+              <input
+                type="search"
+                name="search"
+                placeholder="search by task name"
+              />
+              <i class="fas fa-search"></i>
+            </div>
+          </div>
+          <h2 id="tasks-headline" class="cyan-color">Tasks</h2>
+
+          <!-- NEW TASKS CONTAINER -->
+          <div id="tasks" class="flex-row"></div>
+
+          <!-- FOOTER -->
+          <div id="footer">
+            <div id="see-all" class="pointer">See All</div>
+            <div id="task-status" class="flex-row">
+              <div id="items-left"></div>
+              <div id="all" class="pointer">All</div>
+              <div id="completed" class="pointer">Completed</div>
+              <div id="active" class="pointer">Active</div>
+              <div id="clear-completed" class="pointer">Clear Completed</div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <div id="display"></div>
+      <script type="text/javascript" src="todo.js"></script>
+    </body>
+  </body>
+</html>

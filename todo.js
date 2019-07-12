@@ -17,6 +17,8 @@ let radioOther = document.querySelector("#other");
 
 let tasksParent = document.querySelector("#tasks");
 
+let firebaseRef = firebase.database().ref("tasks");
+
 //CLOSE NEW TASK CONTAINER WITH ESC BUTTON (Modal)
 document.onkeydown = function(evt) {
   if (evt.keyCode === 27) {
@@ -31,6 +33,10 @@ saveButton.addEventListener("click", saveButtonFunc);
 
 //HOME PAGE BUTTON WHEN CLICKED | SHOW ADD TASK FORM
 function mainButtonFunc() {
+  firebaseRef.push({
+    name: Dog
+  });
+
   val = newTaskContainer;
   addTaskModal(val);
 }

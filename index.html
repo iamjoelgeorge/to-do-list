@@ -121,5 +121,26 @@
     </main>
 
     <script type="text/javascript" src="todo.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyA3NIj8yiE7WHm_KoX7_W147J8htYzepB4",
+        authDomain: "the-awesome-to-do-list.firebaseapp.com",
+        databaseURL: "https://the-awesome-to-do-list.firebaseio.com",
+        projectId: "the-awesome-to-do-list",
+        storageBucket: "",
+        messagingSenderId: "386448902881",
+        appId: "1:386448902881:web:cbd01908ecf3005c"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
   </body>
 </html>
