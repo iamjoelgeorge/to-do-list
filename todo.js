@@ -17,7 +17,7 @@ let radioOther = document.querySelector("#other");
 
 let tasksParent = document.querySelector("#tasks");
 
-let firebaseRef = firebase.database().ref("tasks");
+// let firebaseRef = firebase.database().ref("tasks");
 
 //CLOSE NEW TASK CONTAINER WITH ESC BUTTON (Modal)
 document.onkeydown = function(evt) {
@@ -33,9 +33,9 @@ saveButton.addEventListener("click", saveButtonFunc);
 
 //HOME PAGE BUTTON WHEN CLICKED | SHOW ADD TASK FORM
 function mainButtonFunc() {
-  firebaseRef.push({
-    name: Dog
-  });
+  // firebaseRef.push({
+  //   name: Dog
+  // });
 
   val = newTaskContainer;
   addTaskModal(val);
@@ -57,7 +57,7 @@ function saveButtonFunc() {
 
   closeButton.innerText = "x";
 
-  console.log(newTask);
+  // console.log(newTask);
 
   newTask.className = "the-task flex-row";
   circleDiv.className = "circle flex-row-center";
@@ -114,7 +114,7 @@ function saveButtonFunc() {
       e.target.parentElement.remove();
       noOfTasks--;
       noOfTasksRemaining(noOfTasks);
-      console.log(noOfTasks);
+      // console.log(noOfTasks);
     }
   }
 }
