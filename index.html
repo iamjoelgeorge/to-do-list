@@ -15,7 +15,7 @@
     <title>To-Do List</title>
   </head>
   <body>
-    <main id="main-body" class="flex-col-center">
+    <main id="main-body" class="flex-col-center nowrap">
       <!-- Homepage Button -->
       <div class="btn">
         <button id="btn--main">
@@ -25,8 +25,8 @@
 
       <!-- Add a New Task Form -->
       <section id="new-task-container" class="flex-col-center hidden">
-        <div name="newTaskForm" id="add-task--form" class="flex-col">
-          <!-- <div id="add-task--form" class="flex-col"> -->
+        <!-- <form name="newTaskForm" id="add-task--form" class="flex-col"> -->
+        <div id="add-task--form" class="flex-col">
           <h2>Add a New Task</h2>
           <div class="flex-col form-items">
             <label for="add-task">Add Task</label>
@@ -75,20 +75,22 @@
               <button id="save-btn">Save</button>
             </div>
           </div>
+          <!-- </form> -->
         </div>
-        <!-- </div> -->
       </section>
 
       <!-- ALL TASKS -->
-      <section id="all-tasks-container" class="hidden">
-        <div class="menu-and-search flex-row-end">
+      <section id="all-tasks-container" class="hiddn">
+        <div id="menu-and-search" class="flex-row-end">
           <div id="dropdown" class="cyan-color">
-            <p onclick="dropdown()" class="pointer">All</p>
+            <p class="pointer">
+              All <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </p>
             <ul id="dropdown-list" class="hidden">
-              <li>Personal</li>
-              <li>Business</li>
-              <li>Other</li>
-              <li>All</li>
+              <li id="personal--dropdown">Personal</li>
+              <li id="business--dropdown">Business</li>
+              <li id="other--dropdown">Other</li>
+              <li id="all--dropdown">All</li>
             </ul>
           </div>
           <!-- SEARCH BOX -->
@@ -101,46 +103,27 @@
             <i class="fas fa-search"></i>
           </div>
         </div>
-        <h2 id="tasks-headline" class="cyan-color">Tasks</h2>
+        <div id="all-tasks">
+          <h2 id="tasks-headline" class="cyan-color">Tasks</h2>
 
-        <!-- NEW TASKS CONTAINER -->
-        <div id="tasks" class="flex-row"></div>
+          <!-- NEW TASKS CONTAINER -->
+          <div id="tasks" class="flex-row"></div>
 
-        <!-- FOOTER -->
-        <div id="footer">
-          <div id="see-all" class="pointer">See All</div>
-          <div id="task-status" class="flex-row">
-            <div id="items-left"></div>
-            <div id="all" class="pointer">All</div>
-            <div id="completed" class="pointer">Completed</div>
-            <div id="active" class="pointer">Active</div>
-            <div id="clear-completed" class="pointer">Clear Completed</div>
+          <!-- FOOTER -->
+          <div id="footer">
+            <div id="see-all" class="pointer">See All</div>
+            <div id="task-status" class="flex-row">
+              <div id="items-left"></div>
+              <div id="all" class="pointer">All</div>
+              <div id="completed" class="pointer">Completed</div>
+              <div id="active" class="pointer">Active</div>
+              <div id="clear-completed" class="pointer">Clear Completed</div>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
     <script type="text/javascript" src="todo.js"></script>
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#config-web-app -->
-
-    <script>
-      // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: "AIzaSyA3NIj8yiE7WHm_KoX7_W147J8htYzepB4",
-        authDomain: "the-awesome-to-do-list.firebaseapp.com",
-        databaseURL: "https://the-awesome-to-do-list.firebaseio.com",
-        projectId: "the-awesome-to-do-list",
-        storageBucket: "",
-        messagingSenderId: "386448902881",
-        appId: "1:386448902881:web:cbd01908ecf3005c"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-    </script>
   </body>
 </html>
